@@ -26,6 +26,17 @@ class ShoppingCartSpec extends Specification {
     }
 
   }
+
+  "the checkout system adjust the price depending on special offers applied" >> {
+
+    "buy one get one free on Apples" >> {
+      "[ Apple, Apple, Orange, Apple ] should be £1.45" >> {
+        val cart = ShoppingCart(List(Apple, Apple, Orange, Apple), List(BogofApples))
+
+        cart.total must_== 1.45
+      }
+    }
+  }
 }
 
 

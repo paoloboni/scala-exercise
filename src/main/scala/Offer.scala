@@ -8,3 +8,10 @@ object BogofApples extends Offer {
     freebies * Apple.price
   }
 }
+
+object Three4TwoOranges extends Offer {
+  def discount(items: Seq[Item]): Double = {
+    val freebies = items.count(_ == Orange) / 3
+    freebies * Orange.price
+  }
+}

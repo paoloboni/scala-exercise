@@ -20,6 +20,32 @@ class OfferSpec extends Specification {
       "[ Apple, Apple, Apple, Orange ] discount should be £0.60" >> {
         BogofApples.discount(Seq(Apple, Apple, Apple, Orange)) must_== 0.60
       }
+    }
+
+    "3 for 2 Oranges" >> {
+      "[ Orange ] should have no discount" >> {
+        Three4TwoOranges.discount(Seq(Orange)) must_== 0
+      }
+
+      "[ Orange, Orange ] should have no discount" >> {
+        Three4TwoOranges.discount(Seq(Orange, Orange)) must_== 0
+      }
+
+      "[ Orange, Orange, Orange ] should have 25p discount" >> {
+        Three4TwoOranges.discount(Seq(Orange, Orange, Orange)) must_== 0.25
+      }
+
+      "[ Orange, Orange  Orange, Orange ] should have 25p discount" >> {
+        Three4TwoOranges.discount(Seq(Orange, Orange, Orange, Orange)) must_== 0.25
+      }
+
+      "[ Orange, Orange, Orange, Apple ] should have 25p discount" >> {
+        Three4TwoOranges.discount(Seq(Orange, Orange, Orange, Apple)) must_== 0.25
+      }
+
+      "[ Orange, Orange  Orange, Orange, Orange, Orange ] should have 50p discount" >> {
+        Three4TwoOranges.discount(Seq(Orange, Orange, Orange, Orange, Orange, Orange)) must_== 0.50
+      }
 
     }
 

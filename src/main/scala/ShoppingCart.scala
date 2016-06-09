@@ -22,7 +22,7 @@ case class ShoppingCart(items: Seq[Item], offers: Seq[Offer] = Seq.empty) {
 
 object ShoppingCart {
 
-  val todaysOffers = Seq(BogofApples)
+  val todaysOffers = Seq(BogofApples, Three4TwoOranges)
 
   def round2dp(d:Double) = math.round(100 * d) / 100.0
 
@@ -30,16 +30,15 @@ object ShoppingCart {
     println("Enter a list containing Apple and Orange:")
     val input = StdIn.readLine()
 
-    val items = input.split("[\\s,]").collect {
-        case "Apple" => Apple
-        case "Orange" => Orange
+    val items = input.toLowerCase.split("[\\s,]").collect {
+        case "apple" => Apple
+        case "orange" => Orange
     }.toSeq
 
     val total = ShoppingCart(items, todaysOffers).total
 
-    println(s"The total for ($input) is $total")
+    println(s"The total for ($input) is ${total.formatted("%.2f")}")
   }
-
 
 }
 

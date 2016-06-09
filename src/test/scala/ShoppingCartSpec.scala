@@ -36,6 +36,20 @@ class ShoppingCartSpec extends Specification {
         cart.total must_== 1.45
       }
     }
+    "3 for 2 on Oranges" >> {
+      "[ Orange, Orange, Orange, Apple ] should be £1.10" >> {
+        val cart = ShoppingCart(List(Orange, Orange, Orange, Apple), List(Three4TwoOranges))
+
+        cart.total must_== 1.10
+      }
+    }
+    "Apple and Orange offers" >> {
+      "[ Orange, Orange, Orange, Apple, Apple, Apple ] should be £1.70" >> {
+        val cart = ShoppingCart(List(Orange, Orange, Orange, Apple, Apple, Apple), List(BogofApples, Three4TwoOranges))
+
+        cart.total must_== 1.70
+      }
+    }
   }
 }
 

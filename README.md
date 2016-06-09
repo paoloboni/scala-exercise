@@ -1,2 +1,2 @@
 # scala-exercise
-Scala interview excrcise for well-known public sector organisation
+Scala interview exercise for well-known public sector organisation
